@@ -90,17 +90,16 @@ def depthFirstSearch(problem):
   solution = []
   for s in problem.getSuccessors(startState):
 	frontier.push((s[0], [s[1]]))
-  print 'frontier', frontier, frontier.list
-  
+
   while True: 
 	if frontier.isEmpty():
 		raise Exception, 'Failure'
-	print 'solution ', solution
+	#print 'solution ', solution
 	(stateCoordinates, solution) = frontier.pop()
 	print 'processing state', stateCoordinates, solution
 	if (problem.isGoalState(stateCoordinates)):
-			print 'GoalState', stateCoordinates
-			print 'returnning solution', solution
+			#print 'GoalState', stateCoordinates
+			#print 'returnning solution', solution
 			return solution
 	explored.append(stateCoordinates)
 	successors  = problem.getSuccessors(stateCoordinates)
@@ -108,18 +107,16 @@ def depthFirstSearch(problem):
 	if successors:
 		for s in successors:
 			if s[0] in explored:
-				print 'skipping explored ', s
+				#print 'skipping explored ', s
 				continue
-			print 'solution[:]', solution, 's ', s, s[0], s[1]	
 			solCopy = solution[:]
 			solCopy.append(s[1])
-			print 'solCopy', solCopy
 			frontier.push((s[0], solCopy))
-	print 'solution', solution
-	print 'successors', successors
-	print 'explored', explored
-	print 'frontier', frontier.list
-	print '======================================'
+	#print 'solution', solution
+	#print 'successors', successors
+	#print 'explored', explored
+	#print 'frontier', frontier.list
+	#print '======================================'
   return solution
   
 def breadthFirstSearch(problem):
