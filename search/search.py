@@ -96,7 +96,7 @@ def depthFirstSearch(problem):
 		raise Exception, 'Failure'
 	#print 'solution ', solution
 	(stateCoordinates, solution) = frontier.pop()
-	print 'processing state', stateCoordinates, solution
+	#print 'processing state', stateCoordinates, solution
 	if (problem.isGoalState(stateCoordinates)):
 			#print 'GoalState', stateCoordinates
 			#print 'returnning solution', solution
